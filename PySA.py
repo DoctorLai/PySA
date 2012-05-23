@@ -11,11 +11,11 @@ class PySA:
     """
         private atrributes
     """
-    __coolingfactor = 0.5
+    __coolingfactor = 0.05
     __temp = 30.0
     __stab = 30.0
     __freztemp = 0.0
-    __stabfact = 0.05
+    __stabfact = 1.005
     __curenergy = 0.0
 
     """
