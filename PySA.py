@@ -107,7 +107,8 @@ class PySA:
                 if self.__prob(self.Temperature, delta):
                     self.acceptNB()
                     self.CurrentEnergy = energy
-            self.Temperature -= Self.CoolingFactor
+                i += 1
+            self.Temperature -= self.CoolingFactor
             self.Stabilizer *= self.StabilizingFactor
             return False
         self.Temperature = self.FreezingTemperature
