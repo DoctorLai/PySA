@@ -93,7 +93,7 @@ class PySA:
         prepare
     """
     def Prepare(self):
-        self.CurrentEnergy = self.generateNew       
+        self.CurrentEnergy = self.generateNew()        
 
     """
         do one step and return if finished
