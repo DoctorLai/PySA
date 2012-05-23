@@ -98,7 +98,7 @@ class PySA:
     """
         do one step and return if finished
     """
-    def Step():
+    def Step(self):
         if self.Temperature > self.FreezingTemperature:
             i = 0
             while i < self.Stabilizer:
