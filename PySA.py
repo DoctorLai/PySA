@@ -102,10 +102,10 @@ class PySA:
         if self.Temperature > self.FreezingTemperature:
             i = 0
             while i < self.Stabilizer:
-                energy = self.generateNB
+                energy = self.generateNB()
                 delta = energy - self.CurrentEnergy
                 if self.__prob(self.Temperature, delta):
-                    self.acceptNB
+                    self.acceptNB()
                     self.CurrentEnergy = energy
             self.Temperature -= Self.CoolingFactor
             self.Stabilizer *= self.StabilizingFactor
