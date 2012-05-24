@@ -48,12 +48,12 @@ MHz = 947
 paths = []
 
 # number of meas points
-np = 20
+np = 50
 
 for nm in range(0, np):
     mpaths = []
     # number of paths
-    np = randint(5, 20) 
+    np = randint(1, 25) 
 
     for i in range(0, np):
         # link distance, reflection, diffraction, transmission
@@ -69,9 +69,9 @@ def getDB(mpaths, MHz, mat):
     meas = C_MAXDB
     for i in mpaths:
         db = FreeSpace(i[0], MHz) + i[1] * dot(i[1:], mat)
-        #meas = Merge(meas, db)
-        if db < meas:
-            meas = db
+        meas = Merge(meas, db)
+        #if db < meas:
+        #    meas = db
     return meas
 
 def getDBs(paths, MHz, mat):
@@ -100,6 +100,7 @@ newS = []
 def genNew():
     global newE, newS, paths, MHz, mat, meas, bestS, bestE, curE, curS
     newS = [randint(0, 20), randint(0, 20), randint(0, 20)]
+    print 'Initial solution: ', newS
     newE = RMSE(getDBs(paths, MHz, newS), meas)
     bestS = [x for x in newS]
     bestE = newE
