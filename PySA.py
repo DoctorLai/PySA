@@ -12,8 +12,8 @@ class PySA:
         private atrributes
     """
     __coolingfactor = 0.05
-    __temp = 33.0
-    __stab = 33.0
+    __temp = 28.0
+    __stab = 28.0
     __freztemp = 0.0
     __stabfact = 1.005
     __curenergy = 0.0
@@ -83,7 +83,8 @@ class PySA:
     """
         probability function
     """
-    def __prob(self, temp, delta):
+    @staticmethod
+    def ComputeProb(temp, delta):
         if delta < 0:
             return True
         else:
@@ -107,7 +108,7 @@ class PySA:
             while i < self.Stabilizer:
                 energy = self.generateNB()
                 delta = energy - self.CurrentEnergy
-                if self.__prob(self.Temperature, delta):
+                if PySA.ComputeProb(self.Temperature, delta):
                     self.acceptNB()
                     self.CurrentEnergy = energy
                 i += 1
