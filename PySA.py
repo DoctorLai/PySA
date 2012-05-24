@@ -12,8 +12,8 @@ class PySA:
         private atrributes
     """
     __coolingfactor = 0.05
-    __temp = 30.0
-    __stab = 30.0
+    __temp = 33.0
+    __stab = 33.0
     __freztemp = 0.0
     __stabfact = 1.005
     __curenergy = 0.0
@@ -93,6 +93,9 @@ class PySA:
         prepare
     """
     def Prepare(self):
+        assert(self.generateNew != None)
+        assert(self.generateNB != None)
+        assert(self.acceptNB != None)
         self.CurrentEnergy = self.generateNew()        
 
     """

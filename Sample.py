@@ -68,6 +68,7 @@ def getDB(paths, MHz, mat):
 # material variable
 mat = [5, 5, 5]
 meas = getDB(paths, MHz, mat)
+print meas
 
 # calibration engine
 SA = PySA()
@@ -88,7 +89,7 @@ def genNew():
 def genNB():
     global newS, curS, newE, paths, MHz, newS, meas
     newS = curS
-    newS[randint(0, 2)] = randint(0, 200) * 0.1
+    newS[randint(0, 2)] = randint(0, 100) * 0.1
     newE = abs(getDB(paths, MHz, newS) - meas)
     return newE
     
